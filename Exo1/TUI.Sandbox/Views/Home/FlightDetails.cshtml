@@ -1,0 +1,116 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    @Styles.Render("~/FlightDetails/css")
+    @Scripts.Render("~/Home/jquery")
+    <title>Details</title>
+</head>
+
+
+<body class="background">
+    <script>
+        $(document).ready(function () {
+            $('#'+'@ViewContext.Controller.ValueProvider.GetValue("controller").RawValue'+'Button').addClass("active");
+        });
+        var UrlSettings = {
+                AirportsUrl : '@Url.Action("GetAirports", "Home")'
+        }
+    </script>
+    @RenderPage("~/Views/Shared/MenuWebsite.cshtml")
+    <div id="header">
+        <form class="form-horizontal" method="POST" action="@Url.Action("GetFlights", "Home")">
+            @Html.AntiForgeryToken()
+            <div class="form-group row">
+                <label class="col-md-1 control-label">Departure</label>
+                <div class="col-md-2">
+                    <input list="departure" type="text" value="@ViewBag.previousResearch.DepartureAirport" class="form-control" name="DepartureAirport" id="DepartureAirport" required />
+                    <datalist id="departure"></datalist>
+                </div>
+                <div class="col-md-2">
+                    <input type="date" name="beginningDate" value="@ViewBag.previousResearch.BeginningDate" class="form-control">
+                </div>
+
+                <label class="col-md-1 control-label">Destination</label>
+
+                <div class="col-md-2">
+                    <input list="arrival" type="text" value="@ViewBag.previousResearch.ArrivalAirport" class="form-control" name="ArrivalAirport" id="ArrivalAirport" required />
+                    <datalist id="arrival"></datalist>
+                </div>
+                <div class="col-md-2">
+                    <input type="date" name="endingDate" value="@ViewBag.previousResearch.EndingDate"  class="form-control">
+                </div>
+                <div class="col-md-2  text-center">
+                    <input type="submit" value="Search" class="btn btn-primary">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="content">
+        @if (ViewBag.flights != null && 0 < ViewBag.flights.Count)
+        {
+            var offset = TimeSpan.Zero;
+            var isUtcPassed = ViewBag.flights[0].GetUtcDifference(ref offset);
+            foreach (var flight in ViewBag.flights)
+            {
+                <div>
+                    <div class="left-content">
+                        <div class="top-content">@flight.DepartureAirport.City.Name</div><div class="middle-content">
+                            @flight.DepartureAirport.Name
+                        </div><div class="bottom-content">
+                            @flight.StartDate.ToString("HH:mm dd MMM yyyy")
+                        </div>
+                    </div><div class="center-content">
+                        <div class="left-center-content">
+                            <img src="~/Content/Img/arrow.png" height="40" width="40">
+                        </div><div class="my-center-center-content">
+                            Flight: @String.Format("{0:0.00}", flight.GetDistanceKm()) km, @String.Format("{0:%h}H{0:%m}", flight.GetDuration())<br>Gaz: @flight.GetConsumption() L, @flight.GetPrice() E<br>@flight.Plane.Kind.Name
+                        </div><div class="right-center-content">
+                            <img src="~/Content/Img/arrow.png" height="40" width="40">
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <div class="top-content">@flight.ArrivalAirport.City.Name</div><div class="middle-content">
+                            @flight.ArrivalAirport.Name
+                        </div><div class="bottom-content">
+                            @{
+                                if (isUtcPassed)
+                                {
+                                    @Html.Raw(String.Format(flight.GetEndDateWithoutUtc().Add(offset).ToString("HH:mm dd MMM yyyy")));
+                                    @Html.Raw("<br>UTC (");
+                                    if (offset < TimeSpan.Zero)
+                                    {
+                                        @Html.Raw("-");
+                                    }
+                                    @Html.Raw(String.Format("{0:%h}H{0:%m}", offset));
+                                    @Html.Raw(")");
+                                }
+                                else
+                                {
+                                    @Html.Raw(String.Format(flight.GetEndDateWithoutUtc().ToString("HH:mm dd MMM yyyy")));
+                                    @Html.Raw("<br>Warning [No UTC calculation]");
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="separator-content"></div>
+            }
+        }
+        else
+        {
+            <br>
+            <div style="text-align:center">@Html.Raw("Sorry, there is no available flights.")</div>
+            <br>
+        }
+    </div>
+</body>
+</html>
+

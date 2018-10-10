@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{419C7BBB-1E0A-408A-9FB9-9E11A622694D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TUI.Data.Access.Test</RootNamespace>
+    <AssemblyName>TUI.Data.Access.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DalTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TUI.Ado.Entity\TUI.Ado.Entity.csproj">
+      <Project>{7E349D19-0617-4194-9CF4-1227A49E47D8}</Project>
+      <Name>TUI.Ado.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Data.Access\TUI.Data.Access.csproj">
+      <Project>{4FCEE010-1484-400F-8EED-AFC08FC669EC}</Project>
+      <Name>TUI.Data.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Gasoline\TUI.Gasoline.csproj">
+      <Project>{27162197-8457-49B6-AE21-DC96AE4643A8}</Project>
+      <Name>TUI.Gasoline</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Login\TUI.Login.csproj">
+      <Project>{8F41020A-E4A2-459D-B3BA-049D707A0C4C}</Project>
+      <Name>TUI.Login</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Model.Shared\TUI.Model.Shared.csproj">
+      <Project>{FCEAAB1E-1596-433F-B51F-2C029418D119}</Project>
+      <Name>TUI.Model.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Places.Air\TUI.Places.Air.csproj">
+      <Project>{D2A8B781-9339-436D-8295-80046A10262C}</Project>
+      <Name>TUI.Places.Air</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Places\TUI.Places.csproj">
+      <Project>{D86DB577-3604-4072-8A8D-C3E1B6A546EC}</Project>
+      <Name>TUI.Places</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Report\TUI.Report.csproj">
+      <Project>{51EFD345-1DC4-42E4-8946-53C95CFB5546}</Project>
+      <Name>TUI.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Transportations.Air\TUI.Transportations.Air.csproj">
+      <Project>{E90F39E7-C0F6-4C32-A230-EBDC3D057C5C}</Project>
+      <Name>TUI.Transportations.Air</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Transportations\TUI.Transportations.csproj">
+      <Project>{1B7F6C32-DDA1-4FCD-A671-583484BC8012}</Project>
+      <Name>TUI.Transportations</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.10.1\build\NUnit.props'))" />
+  </Target>
+</Project>

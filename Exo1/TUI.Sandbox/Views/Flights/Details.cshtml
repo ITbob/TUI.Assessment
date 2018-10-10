@@ -1,0 +1,46 @@
+﻿@model TUI.Transportations.Air.Flight
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/LayoutWebsite.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Flight</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureAirport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureAirport.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalAirport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalAirport.Description)
+        </dd>
+    </dl>
+</div>
+
+<p>
+    <div class="basicButton">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    </div>
+    <div class="basicButton">
+        @Html.ActionLink("Back to List", "Index2")
+    </div>
+</p>

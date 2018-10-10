@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @Styles.Render("~/Shared/css")
+    @Scripts.Render("~/bundles/jquery")
+
+</head>
+
+<body class="background">
+    <script>
+        $(document).ready(function () {
+            $('#'+'@ViewContext.Controller.ValueProvider.GetValue("controller").RawValue'+'Button').addClass("active");
+        });
+    </script>
+    @RenderPage("~/Views/Shared/MenuWebsite.cshtml")
+    <br>
+    <div class="basicContainer">
+        <div>
+            @RenderBody()
+            <br>
+            <div class="basicButton">
+                @Html.ActionLink("back home page.", "index", "Home", null, null)
+            </div>
+        </div>
+    </div>
+    <br>
+</body>
+</html>

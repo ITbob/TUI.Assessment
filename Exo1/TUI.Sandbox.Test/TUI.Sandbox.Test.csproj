@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6B1F81C8-AFCE-4ED3-81FF-04ADAD925751}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TUI.Sandbox.Test</RootNamespace>
+    <AssemblyName>TUI.Sandbox.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LightBDD.Core, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LightBDD.Core.2.1.0.0\lib\net45\LightBDD.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LightBDD.Framework, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LightBDD.Framework.2.1.0.0\lib\net45\LightBDD.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="LightBDD.NUnit2, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LightBDD.NUnit2.2.1.0.0\lib\net45\LightBDD.NUnit2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\AirportsControllerTest.cs" />
+    <Compile Include="Source\CitiesControllerTest.cs" />
+    <Compile Include="Source\FlightsControllerTest.cs" />
+    <Compile Include="Source\HomeControllerTest.cs" />
+    <Compile Include="Source\NotificationControllerTest.cs" />
+    <Compile Include="Source\ReportControllerTest.cs" />
+    <Compile Include="Source\Scenarios\CityControllerFeatures.cs" />
+    <Compile Include="Source\Scenarios\CityControllerScenarios.cs" />
+    <Compile Include="Source\Scenarios\HomeControllerFeatures.cs" />
+    <Compile Include="Source\Scenarios\HomeControllerScenarios.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TUI.Ado.Entity\TUI.Ado.Entity.csproj">
+      <Project>{7E349D19-0617-4194-9CF4-1227A49E47D8}</Project>
+      <Name>TUI.Ado.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Data.Access\TUI.Data.Access.csproj">
+      <Project>{4FCEE010-1484-400F-8EED-AFC08FC669EC}</Project>
+      <Name>TUI.Data.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Gasoline\TUI.Gasoline.csproj">
+      <Project>{27162197-8457-49B6-AE21-DC96AE4643A8}</Project>
+      <Name>TUI.Gasoline</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Login\TUI.Login.csproj">
+      <Project>{8F41020A-E4A2-459D-B3BA-049D707A0C4C}</Project>
+      <Name>TUI.Login</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Model.Shared\TUI.Model.Shared.csproj">
+      <Project>{FCEAAB1E-1596-433F-B51F-2C029418D119}</Project>
+      <Name>TUI.Model.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Places.Air\TUI.Places.Air.csproj">
+      <Project>{D2A8B781-9339-436D-8295-80046A10262C}</Project>
+      <Name>TUI.Places.Air</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Places\TUI.Places.csproj">
+      <Project>{d86db577-3604-4072-8a8d-c3e1b6a546ec}</Project>
+      <Name>TUI.Places</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Report\TUI.Report.csproj">
+      <Project>{51EFD345-1DC4-42E4-8946-53C95CFB5546}</Project>
+      <Name>TUI.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Sandbox\TUI.Sandbox.csproj">
+      <Project>{282ba2b1-12c6-4609-83ce-830d157b38ad}</Project>
+      <Name>TUI.Sandbox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Transportations.Air\TUI.Transportations.Air.csproj">
+      <Project>{E90F39E7-C0F6-4C32-A230-EBDC3D057C5C}</Project>
+      <Name>TUI.Transportations.Air</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TUI.Transportations\TUI.Transportations.csproj">
+      <Project>{1B7F6C32-DDA1-4FCD-A671-583484BC8012}</Project>
+      <Name>TUI.Transportations</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

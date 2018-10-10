@@ -1,0 +1,58 @@
+﻿@model TUI.Sandbox.Models.FlightSearch
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Styles.Render("~/Index/css")
+    @Scripts.Render("~/Home/jquery")
+    <title>Index</title>
+</head>
+
+
+
+<body class="background">
+    <script>
+        var UrlSettings = {
+                AirportsUrl : '@Url.Action("GetAirports", "Home")'
+        }
+        $(document).ready(function () {
+            $('#'+'@ViewContext.Controller.ValueProvider.GetValue("controller").RawValue'+'Button').addClass("active");
+        });
+    </script>
+        @RenderPage("~/Views/Shared/MenuWebsite.cshtml")
+        <div id="header">
+            <form class="form-horizontal" method="POST" action="@Url.Action("GetFlights", "Home")">
+                @Html.AntiForgeryToken()
+                <div class="form-group row">
+                    <label class="col-md-1 control-label">Departure</label>
+                    <div class="col-md-2">
+                        <input list="departure" type="text" class="form-control" name="DepartureAirport" id="DepartureAirport" required />
+                        <datalist id="departure"></datalist>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="date" name="beginningDate" class="form-control">
+                    </div>
+
+                    <label class="col-md-1 control-label">Destination</label>
+
+                    <div class="col-md-2">
+                        <input list="arrival" type="text" class="form-control" name="ArrivalAirport" id="ArrivalAirport" required />
+                        <datalist id="arrival"></datalist>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="date" name="endingDate" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" value="Search" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+</body>
+</html>

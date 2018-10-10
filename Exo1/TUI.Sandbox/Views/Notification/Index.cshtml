@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutWebsite.cshtml";
+}
+
+@if (String.IsNullOrEmpty(ViewBag.Notification))
+{
+    @Html.DisplayText("An Error happened.");
+}
+else
+{
+    if (@ViewBag.Notification is IEnumerable<String>)
+    {
+        foreach (var notif in @ViewBag.Notification)
+        {
+            @Html.Raw($"<p>{notif}</p>");
+        }
+    }
+    else
+    {
+        @ViewBag.Notification
+    }
+}

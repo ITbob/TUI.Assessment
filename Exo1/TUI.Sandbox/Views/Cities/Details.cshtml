@@ -1,0 +1,38 @@
+﻿@model TUI.Places.Source.City
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/LayoutWebsite.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>City</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <div class="basicButton">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    </div>
+    <div class="basicButton">  
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</p>

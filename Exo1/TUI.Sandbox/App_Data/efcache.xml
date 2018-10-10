@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<views>
+  <mapping-views hash="ef1fcffb3665ca502083b5ea05fc40dedf517f348101465a8cc9e6d3c0f0d25b" conceptual-container="TuiContext" store-container="CodeFirstDatabase">
+    <view extent="CodeFirstDatabase.Airport"><![CDATA[
+    SELECT VALUE -- Constructing Airport
+        [CodeFirstDatabaseSchema.Airport](T1.Airport_Id, T1.Airport_LocationId, T1.Airport_Name, T1.Airport_CityId)
+    FROM (
+        SELECT 
+            T.Id AS Airport_Id, 
+            T.LocationId AS Airport_LocationId, 
+            T.Name AS Airport_Name, 
+            T.CityId AS Airport_CityId, 
+            True AS _from0
+        FROM TuiContext.Airports AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.City"><![CDATA[
+    SELECT VALUE -- Constructing City
+        [CodeFirstDatabaseSchema.City](T1.City_Id, T1.City_Name, T1.City_LocationId)
+    FROM (
+        SELECT 
+            T.Id AS City_Id, 
+            T.Name AS City_Name, 
+            T.LocationId AS City_LocationId, 
+            True AS _from0
+        FROM TuiContext.Cities AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Location"><![CDATA[
+    SELECT VALUE -- Constructing Location
+        [CodeFirstDatabaseSchema.Location](T1.Location_Id, T1.Location_Latitude, T1.Location_Longitude)
+    FROM (
+        SELECT 
+            T.Id AS Location_Id, 
+            T.Latitude AS Location_Latitude, 
+            T.Longitude AS Location_Longitude, 
+            True AS _from0
+        FROM TuiContext.Locations AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Flight"><![CDATA[
+    SELECT VALUE -- Constructing Flight
+        [CodeFirstDatabaseSchema.Flight](T1.Flight_Id, T1.Flight_StartDate, T1.Flight_PlaneId, T1.Flight_DepartureId, T1.Flight_ArrivalId)
+    FROM (
+        SELECT 
+            T.Id AS Flight_Id, 
+            T.StartDate AS Flight_StartDate, 
+            T.PlaneId AS Flight_PlaneId, 
+            T.DepartureId AS Flight_DepartureId, 
+            T.ArrivalId AS Flight_ArrivalId, 
+            True AS _from0
+        FROM TuiContext.Flights AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Plane"><![CDATA[
+    SELECT VALUE -- Constructing Plane
+        [CodeFirstDatabaseSchema.Plane](T1.Plane_Id, T1.Plane_KindId, T1.Plane_GasId)
+    FROM (
+        SELECT 
+            T.Id AS Plane_Id, 
+            T.KindId AS Plane_KindId, 
+            T.GasId AS Plane_GasId, 
+            True AS _from0
+        FROM TuiContext.Planes AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.GasKind"><![CDATA[
+    SELECT VALUE -- Constructing GasKind
+        [CodeFirstDatabaseSchema.GasKind](T1.GasKind_Id, T1.GasKind_Name, T1.GasKind_GasConsumptionCoefficient, T1.GasKind_Price)
+    FROM (
+        SELECT 
+            T.Id AS GasKind_Id, 
+            T.Name AS GasKind_Name, 
+            T.GasConsumptionCoefficient AS GasKind_GasConsumptionCoefficient, 
+            T.Price AS GasKind_Price, 
+            True AS _from0
+        FROM TuiContext.GasKinds AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.PlaneKind"><![CDATA[
+    SELECT VALUE -- Constructing PlaneKind
+        [CodeFirstDatabaseSchema.PlaneKind](T1.PlaneKind_Id, T1.PlaneKind_Name, T1.PlaneKind_KmsHourSpeedAverage, T1.PlaneKind_Weight, T1.PlaneKind_EngineFactor, T1.PlaneKind_RequiredStartingDistance, T1.PlaneKind_StartingEffort)
+    FROM (
+        SELECT 
+            T.Id AS PlaneKind_Id, 
+            T.Name AS PlaneKind_Name, 
+            T.KmsHourSpeedAverage AS PlaneKind_KmsHourSpeedAverage, 
+            T.Weight AS PlaneKind_Weight, 
+            T.EngineFactor AS PlaneKind_EngineFactor, 
+            T.RequiredStartingDistance AS PlaneKind_RequiredStartingDistance, 
+            T.StartingEffort AS PlaneKind_StartingEffort, 
+            True AS _from0
+        FROM TuiContext.PlaneKinds AS T
+    ) AS T1]]></view>
+    <view extent="TuiContext.Airports"><![CDATA[
+    SELECT VALUE -- Constructing Airports
+        [TUI.Data.Access.Source.Airport](T1.Airport_Id, T1.Airport_LocationId, T1.Airport_Name, T1.Airport_CityId)
+    FROM (
+        SELECT 
+            T.Id AS Airport_Id, 
+            T.LocationId AS Airport_LocationId, 
+            T.Name AS Airport_Name, 
+            T.CityId AS Airport_CityId, 
+            True AS _from0
+        FROM CodeFirstDatabase.Airport AS T
+    ) AS T1]]></view>
+    <view extent="TuiContext.Cities"><![CDATA[
+    SELECT VALUE -- Constructing Cities
+        [TUI.Data.Access.Source.City](T1.City_Id, T1.City_Name, T1.City_LocationId)
+    FROM (
+        SELECT 
+            T.Id AS City_Id, 
+            T.Name AS City_Name, 
+            T.LocationId AS City_LocationId, 
+            True AS _from0
+        FROM CodeFirstDatabase.City AS T
+    ) AS T1]]></view>
+    <view extent="TuiContext.Locations"><![CDATA[
+    SELECT VALUE -- Constructing Locations
+        [TUI.Data.Access.Source.Location](T1.Location_Id, T1.Location_Latitude, T1.Location_Longitude)
+    FROM (
+        SELECT 
+            T.Id AS Location_Id, 
+            T.Latitude AS Location_Latitude, 
+            T.Longitude AS Location_Longitude, 
+            True AS _from0
+        FROM CodeFirstDatabase.Location AS T
+    ) AS T1]]></view>
+    <view extent="TuiContext.Flights"><![CDATA[
+    SELECT VALUE -- Constructing Flights
+        [TUI.Data.Access.Source.Flight](T1.Flight_Id, T1.Flight_StartDate, T1.Flight_PlaneId, T1.Flight_DepartureId, T1.Flight_ArrivalId)
+    FROM (
+        SELECT 
+            T.Id AS Flight_Id, 
+            T.StartDate AS Flight_StartDate, 
+            T.PlaneId AS Flight_PlaneId, 
+            T.DepartureId AS Flight_DepartureId, 
+            T.ArrivalId AS Flight_ArrivalId, 
+            True AS _from0
+        FROM CodeFirstDatabase.Flight AS T
+    ) AS T1]]></view>
+    <view extent="TuiContext.Planes"><![CDATA[
+    SELECT VALUE -- Constructing Planes
+        [TUI.Data.Access.Source.Plane](T1.Plane_Id, T1.Plane_KindId, T1.Plane_GasId)
+    FROM (
+        SELECT 
+            T.Id AS Plane_Id, 
+            T.KindId AS Plane_KindId, 
+            T.GasId AS Plane_GasId, 
+            True AS _from0
+        FROM CodeFirstDatabase.Plane AS T
+    ) AS T1]]></view>
+    <view extent="TuiContext.GasKinds"><![CDATA[
+    SELECT VALUE -- Constructing GasKinds
+        [TUI.Data.Access.Source.GasKind](T1.GasKind_Id, T1.GasKind_Name, T1.GasKind_GasConsumptionCoefficient, T1.GasKind_Price)
+    FROM (
+        SELECT 
+            T.Id AS GasKind_Id, 
+            T.Name AS GasKind_Name, 
+            T.GasConsumptionCoefficient AS GasKind_GasConsumptionCoefficient, 
+            T.Price AS GasKind_Price, 
+            True AS _from0
+        FROM CodeFirstDatabase.GasKind AS T
+    ) AS T1]]></view>
+    <view extent="TuiContext.PlaneKinds"><![CDATA[
+    SELECT VALUE -- Constructing PlaneKinds
+        [TUI.Data.Access.Source.PlaneKind](T1.PlaneKind_Id, T1.PlaneKind_Name, T1.PlaneKind_KmsHourSpeedAverage, T1.PlaneKind_Weight, T1.PlaneKind_EngineFactor, T1.PlaneKind_RequiredStartingDistance, T1.PlaneKind_StartingEffort)
+    FROM (
+        SELECT 
+            T.Id AS PlaneKind_Id, 
+            T.Name AS PlaneKind_Name, 
+            T.KmsHourSpeedAverage AS PlaneKind_KmsHourSpeedAverage, 
+            T.Weight AS PlaneKind_Weight, 
+            T.EngineFactor AS PlaneKind_EngineFactor, 
+            T.RequiredStartingDistance AS PlaneKind_RequiredStartingDistance, 
+            T.StartingEffort AS PlaneKind_StartingEffort, 
+            True AS _from0
+        FROM CodeFirstDatabase.PlaneKind AS T
+    ) AS T1]]></view>
+  </mapping-views>
+</views>
